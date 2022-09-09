@@ -3699,6 +3699,172 @@ body._lock-scroll {
   }
 }
 
+.blog__image {
+  padding-bottom: 32%;
+  border-radius: 28px;
+  overflow: hidden;
+}
+@media (max-width: 1024.2px) {
+  .blog__image:not(:last-child) {
+    /* Если меньше контейнера */
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 1024.2px) and (max-width: 1230px) {
+  .blog__image:not(:last-child) {
+    margin-bottom: calc(20px + 10 * ((100vw - 320px) / 910));
+  }
+}
+@media (max-width: 768.2px) {
+  .blog__image {
+    padding-bottom: 38%;
+  }
+}
+@media (max-width: 480.2px) {
+  .blog__image {
+    padding-bottom: 52%;
+  }
+}
+@media (any-hover: hover) {
+  .blog__image img {
+    transition: transform 0.3s ease 0s;
+  }
+  .blog__image:hover img {
+    transform: scale(1.1);
+  }
+}
+.blog__content {
+  padding: 50px 160px 150px;
+  margin: 0 auto;
+  max-width: 1115px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  transform: translateY(-2%);
+  background-color: #fff;
+}
+@media (max-width: 1920.2px) {
+  .blog__content {
+    /* Всегда */
+    padding-top: calc(25px + 25 * ((100vw - 320px) / 1600));
+    /* Всегда */
+    padding-right: calc(20px + 140 * ((100vw - 320px) / 1600));
+    /* Всегда */
+    padding-left: calc(20px + 140 * ((100vw - 320px) / 1600));
+    /* Всегда */
+    padding-bottom: calc(40px + 110 * ((100vw - 320px) / 1600));
+  }
+}
+@media (max-width: 1024.2px) {
+  .blog__content {
+    transform: translateY(0%);
+  }
+}
+
+.blog-content__data:not(:last-child) {
+  margin-bottom: 5px;
+}
+.blog-content__main-title {
+  max-width: 450px;
+  display: inline-flex;
+  position: relative;
+}
+.blog-content__main-title:after {
+  content: "";
+  width: 90px;
+  height: 5px;
+  position: absolute;
+  /* Если меньше контейнера */
+  bottom: -20px;
+  left: 0;
+  background-color: #DE5722;
+}
+@media (max-width: 1230px) {
+  .blog-content__main-title:after {
+    bottom: calc(-12px + -8 * ((100vw - 320px) / 910));
+  }
+}
+.blog-content__main-title:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 40px;
+}
+@media (max-width: 1230px) {
+  .blog-content__main-title:not(:last-child) {
+    margin-bottom: calc(20px + 20 * ((100vw - 320px) / 910));
+  }
+}
+.blog-content__second-title {
+  display: inline-flex;
+  /* Если меньше контейнера */
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 122.7272727273%;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media (max-width: 1230px) {
+  .blog-content__second-title {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 910));
+  }
+}
+.blog-content__second-title:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 35px;
+}
+@media (max-width: 1230px) {
+  .blog-content__second-title:not(:last-child) {
+    margin-bottom: calc(25px + 10 * ((100vw - 320px) / 910));
+  }
+}
+.blog-content__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+.blog-content__text {
+  /* Если меньше контейнера */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media (max-width: 1230px) {
+  .blog-content__text {
+    font-size: calc(14px + 2 * ((100vw - 320px) / 910));
+  }
+}
+.blog-content__image img {
+  max-width: 100%;
+}
+.blog-content__list {
+  display: flex;
+  flex-direction: column;
+}
+.blog-content__list-item {
+  padding-left: 22px;
+  display: inline-flex;
+  position: relative;
+  /* Если меньше контейнера */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media (max-width: 1230px) {
+  .blog-content__list-item {
+    font-size: calc(14px + 2 * ((100vw - 320px) / 910));
+  }
+}
+.blog-content__list-item:before {
+  content: "";
+  width: 12px;
+  height: 2px;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  background-color: #00A0DC;
+}
+
 .page {
   /* Если меньше контейнера */
   padding-bottom: 150px;
@@ -3708,6 +3874,9 @@ body._lock-scroll {
   .page {
     padding-bottom: calc(50px + 100 * ((100vw - 320px) / 910));
   }
+}
+.page.page-blog {
+  background-color: #FBFBFB;
 }
 @media (min-width: 992.2px) {
   .page {
@@ -3750,6 +3919,15 @@ body._lock-scroll {
 @media (max-width: 1230px) {
   .page__products:not(:last-child) {
     margin-bottom: calc(50px + 35 * ((100vw - 320px) / 910));
+  }
+}
+.page__navigation-block {
+  /* Если меньше контейнера */
+  padding-top: 30px;
+}
+@media (max-width: 1230px) {
+  .page__navigation-block {
+    padding-top: calc(20px + 10 * ((100vw - 320px) / 910));
   }
 }
 .page__navigation-block:not(:last-child) {

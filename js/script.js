@@ -200,9 +200,9 @@ if (document.querySelector(".products-slider")) {
 		// loop: true,
 		speed: 500,
 
-		autoplay: {
-			delay: 5000,
-		},
+		// autoplay: {
+		// 	delay: 5000,
+		// },
 
 		navigation: {
 			nextEl: ".products-slider__arrow_next.swiper-button-next",
