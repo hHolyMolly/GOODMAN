@@ -197,7 +197,7 @@ if (document.querySelector(".products-slider")) {
 		slidesPerView: 1,
 		spaceBetween: 30,
 		grabCursor: true,
-		loop: true,
+		// loop: true,
 		speed: 500,
 
 		autoplay: {
@@ -265,7 +265,7 @@ if (document.querySelector(".blogs-slider")) {
 		slidesPerView: 1,
 		spaceBetween: 15,
 		grabCursor: true,
-		loop: true,
+		// loop: true,
 		speed: 500,
 
 		navigation: {
