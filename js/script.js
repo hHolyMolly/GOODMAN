@@ -587,6 +587,8 @@ myPopup(); // ПОПАПЫ
 
 //< " СКРИПТЫ " >=============================================================================================================>//
 
+const containerMain = 1230.2;
+
 let isMobile = {
 	Android: function () { return navigator.userAgent.match(/Android/i); },
 	BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); },
@@ -794,7 +796,7 @@ function comparisonsAdaptive() {
 
 	elements.forEach(element => {
 		window.addEventListener("resize", function () {
-			if (window.innerWidth < 1230.2) {
+			if (window.innerWidth < containerMain) {
 				const width = this.innerWidth - 30;
 				element.style.width = `${width}px`;
 				element.setAttribute("width", `${width}px`);
@@ -810,7 +812,7 @@ function comparisonsAdaptive() {
 		});
 
 		window.addEventListener("DOMContentLoaded", function () {
-			if (window.innerWidth < 1230.2) {
+			if (window.innerWidth < containerMain) {
 				const width = this.innerWidth - 30;
 				element.style.width = `${width}px`;
 				element.setAttribute("width", `${width}px`);
@@ -827,3 +829,34 @@ function comparisonsAdaptive() {
 	});
 }
 comparisonsAdaptive()
+
+function myTabs() {
+	const btns = document.querySelectorAll(".tabs-btn");
+	const content = document.querySelectorAll(".tabs-content");
+	let dataTabs;
+
+	btns.forEach(btn => {
+		btn.addEventListener("click", function () {
+			dataTabs = this.getAttribute("data-tabs");
+
+			btns.forEach(btn => {
+				btn.classList.remove("_active");
+			});
+
+			this.classList.add("_active");
+
+			function tabsSelect(dataTabs) {
+				content.forEach(item => {
+					if (item.classList.contains(dataTabs)) {
+						item.style.display = "block";
+					} else {
+						item.style.display = "none";
+					}
+				});
+			}
+			tabsSelect(dataTabs)
+
+		});
+	});
+}
+myTabs()
