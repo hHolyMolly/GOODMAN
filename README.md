@@ -7,7 +7,8 @@
 - JS;
 - Gulp;
 - Swiper;
-- Icons Font;
+- Препроцессор SCSS;
+- Методология БЭМ;
 - Pixel Perfect;
 
 
