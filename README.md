@@ -9,7 +9,7 @@
 - Swiper;
 - Препроцессор SCSS;
 - Методология БЭМ;
-- Pixel Perfect;
+- Pixel Perfect.
 
 
 Ссылка на макет - https://www.figma.com/file/PShkEmZuXJI9AuVoMF7crd/stayclean?node-id=0%3A1&t=FXOQOg0QlAP78rL5-0
