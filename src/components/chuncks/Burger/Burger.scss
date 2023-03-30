@@ -1,0 +1,66 @@
+// ._burger
+._burger {
+  background-color: transparent;
+
+  div {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      width: 28px;
+      height: 3px;
+      position: relative;
+      border-radius: 6px;
+      transition: background-color 0.2s ease-in-out 0s;
+      background-color: var(--color-white);
+
+      &:before,
+      &:after {
+        content: '';
+        width: 28px;
+        height: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border-radius: 6px;
+        transition: background-color 0.2s ease-in-out 0s,
+          transform 0.2s ease-in-out 0s;
+        background-color: var(--color-white);
+      }
+
+      &:before {
+        top: -10px;
+      }
+
+      &:after {
+        top: 10px;
+      }
+    }
+  }
+
+  &._active {
+    div span {
+      background-color: transparent;
+
+      &:before {
+        transform: rotate(45deg) translate(5px, 6px);
+      }
+
+      &:after {
+        transform: rotate(-45deg) translate(5px, -6px);
+      }
+    }
+  }
+
+  @media (any-hover: hover) {
+    transition: background-color 0.2s ease 0s;
+
+    &:hover {
+      background-color: var(--color-orange);
+    }
+  }
+}

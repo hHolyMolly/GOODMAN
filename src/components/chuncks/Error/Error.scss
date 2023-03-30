@@ -1,0 +1,105 @@
+@import '../../../scss/config/_vars';
+
+.error-block {
+  padding: 0px 5px;
+  display: flex;
+  align-items: center;
+
+  // .error-block__dropdown
+
+  &__text {
+    font-size: 13px;
+    color: var(--color-error);
+  }
+
+  // .error-block__icon
+
+  &__icon {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+
+    svg {
+      width: 18px;
+      height: 18px;
+
+      path {
+        stroke-width: 1.5px;
+        stroke: var(--color-error);
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 6px;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        .error-block__dropdown {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+
+  // .error-block__dropdown
+
+  &__dropdown {
+    margin-bottom: 8px;
+    min-width: 240px;
+    display: block;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    z-index: 2;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+    border-radius: 6px;
+    transform: translateX(-50%);
+    transition: opacity 0.2s ease 0s;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--color-item-border);
+    background-color: var(--color-white);
+
+    font-size: 14px;
+    line-height: 16 / 14 * 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid var(--color-white);
+      transform: translateX(-50%);
+    }
+
+    &._active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    // @media (min-width: $maxWidthContainer + px) {
+    //   left: 50%;
+    //   transform: translateX(-50%);
+
+    //   &:before {
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //   }
+    // }
+
+    // @media (max-width: $maxWidthContainer + px) {
+    //   margin-right: -20px;
+    //   right: 0;
+
+    //   &:before {
+    //     right: 20px;
+    //   }
+    // }
+  }
+}

@@ -1,0 +1,85 @@
+@import '../../../scss/config/_vars';
+@import '../../../scss/config/_mixins';
+
+.field-block {
+  display: flex;
+  flex-direction: column;
+
+  // .field-block__input
+
+  &__row {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: border-color 0.2s ease 0s;
+    border: 1px solid var(--color-item-border);
+    background-color: var(--color-white);
+
+    &._focus {
+      border-color: var(--color-yellow);
+    }
+
+    &._error {
+      border-color: var(--color-error);
+
+      .field-block__icon {
+        svg path {
+          stroke: var(--color-error);
+        }
+      }
+
+      .field-block__input {
+        color: var(--color-error);
+
+        &::placeholder {
+          color: var(--color-error);
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 6px;
+    }
+  }
+
+  // .field-block__input
+
+  &__input {
+    @include adaptiv-value('padding-right', 25, 15, 1);
+    @include adaptiv-value('padding-left', 25, 15, 1);
+    width: 100%;
+    min-height: 55px;
+    transition: color 0.2s ease 0s;
+    background-color: transparent;
+
+    @include adaptiv-value('font-size', 16, 14, 1);
+    font-weight: 400;
+    line-height: 19 / 16 * 100%;
+    color: var(--color-dark);
+
+    &::placeholder {
+      color: var(--color-grey);
+    }
+  }
+
+  // .field-block__icon
+
+  &__icon {
+    @include adaptiv-value('padding-right', 25, 15, 1);
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+
+      path {
+        transition: stroke 0.2s ease 0s;
+
+        stroke-width: 2px;
+        stroke: var(--color-yellow);
+      }
+    }
+  }
+}

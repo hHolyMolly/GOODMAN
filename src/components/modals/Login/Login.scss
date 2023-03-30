@@ -1,0 +1,36 @@
+%grid-template {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.form-login {
+  gap: 30px;
+
+  @extend %grid-template;
+
+  // .form-login__column
+
+  &__column {
+    gap: 15px;
+
+    @extend %grid-template;
+  }
+
+  // .form-login__footer
+
+  &__footer {
+    @extend %grid-template;
+  }
+
+  // .form-login__register
+
+  &__register {
+    text-align: center;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #dfdfdf;
+    }
+  }
+}
