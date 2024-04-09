@@ -9,8 +9,6 @@
 
     const toggle = item.querySelector('[data-text-toggle]');
 
-    let show = false;
-
     const handleHidden = () => {
       paragraphs.style.webkitLineClamp = 'auto';
       paragraphs.style.display = 'flex';
@@ -44,14 +42,14 @@
     breakpointFunc();
 
     toggle.addEventListener('click', () => {
-      if (show === false) {
-        show = true;
-
+      if (paragraphs.style.display === 'flex') {
         handleVisible();
-      } else {
-        show = false;
 
+        return;
+      } else {
         handleHidden();
+
+        return;
       }
     });
   });
