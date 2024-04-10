@@ -5,13 +5,13 @@
     const breakpoint = item.getAttribute('data-text-lines-parent');
 
     const paragraphs = item.querySelector('[data-text-lines]');
-    const lines = paragraphs.getAttribute('data-text-lines');
+    const lines = Number(paragraphs.getAttribute('data-text-lines'));
 
     const toggle = item.querySelector('[data-text-toggle]');
 
     toggle.style.display = 'none';
 
-    const handleHidden = () => {
+    const handleVisible = () => {
       paragraphs.style.webkitLineClamp = 'auto';
       paragraphs.style.display = 'flex';
       paragraphs.style.webkitBoxOrient = 'vertical';
@@ -19,18 +19,20 @@
       paragraphs.style.maxHeight = '100%';
     };
 
-    const handleVisible = () => {
+    const handleHidden = () => {
       paragraphs.style.webkitLineClamp = lines;
       paragraphs.style.display = '-webkit-box';
       paragraphs.style.webkitBoxOrient = 'vertical';
       paragraphs.style.overflow = 'hidden';
 
-      const maxHeight = lines * (parseFloat(window.getComputedStyle(paragraphs).lineHeight) + parseFloat(window.getComputedStyle(paragraphs.children[0]).marginBottom));
+      if (paragraphs.querySelectorAll('ul, ol').length > 0) {
+        const maxHeight = lines * parseFloat(window.getComputedStyle(paragraphs).lineHeight) - 10;
 
-      paragraphs.style.maxHeight = `${maxHeight}px`;
+        paragraphs.style.maxHeight = `${maxHeight}px`;
+      }
     };
 
-    const breakpointFunc = () => {
+    const action = () => {
       const blockHeight = paragraphs.scrollHeight;
 
       const lineHeight = parseFloat(window.getComputedStyle(paragraphs).lineHeight);
@@ -40,39 +42,33 @@
       if (linesCount <= lines) {
         toggle.style.display = 'none';
 
+        console.log(linesCount, lines);
+
         return;
       }
 
       if (window.innerWidth > breakpoint) {
         toggle.style.display = 'none';
 
-        handleHidden();
+        handleVisible();
       } else {
         toggle.style.display = 'inline-flex';
 
-        handleVisible();
+        handleHidden();
       }
     };
 
     window.addEventListener('resize', () => {
-      breakpointFunc();
+      action();
     });
 
-    breakpointFunc();
+    action();
 
     toggle.addEventListener('click', () => {
-      if (paragraphs.style.display === 'flex') {
+      if (paragraphs.style.overflow === 'hidden') {
         handleVisible();
-
-        toggle.innerText = 'Ver Mais...';
-
-        return;
       } else {
         handleHidden();
-
-        toggle.innerText = 'Ver Menos...';
-
-        return;
       }
     });
   });

@@ -503,11 +503,11 @@ body._lock-scroll {
     height: 100vh;
     display: block;
     position: fixed;
-    top: -100%;
-    left: 0;
+    top: 0;
+    left: -110%;
     z-index: 2;
     overflow: auto;
-    transition: top 0.3s ease 0s;
+    transition: left 0.3s ease 0s;
     background-color: var(--green-600);
   }
 }
@@ -568,7 +568,7 @@ body._lock-scroll {
     display: none;
   }
   .header__menu._active {
-    top: 0%;
+    left: 0%;
   }
 }
 .header__burger {
