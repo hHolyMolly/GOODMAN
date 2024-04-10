@@ -1,3 +1,5 @@
+import userDevice from '../functions/is_device.js';
+
 (() => {
   const items = document.querySelectorAll('[data-text-lines-parent]');
 
@@ -56,12 +58,22 @@
       }
     };
 
+    window.addEventListener('resize', () => {
+      if (!userDevice.any()) {
+        action();
+      }
+    });
+
     action();
 
     toggle.addEventListener('click', () => {
       if (paragraphs.style.overflow === 'hidden') {
+        toggle.innerText = 'Ver Menos...';
+
         handleVisible();
       } else {
+        toggle.innerText = 'Ver Mais...';
+
         handleHidden();
       }
     });
