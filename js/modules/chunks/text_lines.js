@@ -1,3 +1,5 @@
+import userDevice from '../functions/is_device.js';
+
 (() => {
   const items = document.querySelectorAll('[data-text-lines-parent]');
 
@@ -59,7 +61,10 @@
     };
 
     window.addEventListener('resize', () => {
-      action();
+      if (userDevice.any()) {
+      } else {
+        action();
+      }
     });
 
     action();
