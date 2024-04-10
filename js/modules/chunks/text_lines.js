@@ -44,8 +44,6 @@ import userDevice from '../functions/is_device.js';
       if (linesCount <= lines) {
         toggle.style.display = 'none';
 
-        console.log(linesCount, lines);
-
         return;
       }
 
