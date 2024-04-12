@@ -1984,8 +1984,8 @@ body._lock-scroll {
   color: var(--green-600);
 }
 .step-block .step__slide-top h5:before {
-  content: counter(list-counter);
-  counter-increment: list-counter;
+  content: counter(list-slider-counter);
+  counter-increment: list-slider-counter;
   width: 36px;
   height: 36px;
   flex: 0 0 36px;
@@ -2622,6 +2622,7 @@ body._lock-scroll {
 }
 .steps-arrow-block__text-first, .steps-arrow-block__text-second {
   overflow-wrap: anywhere;
+  color: var(--grey-700);
 }
 .steps-arrow-block__text-first h2:not(:last-child),
 .steps-arrow-block__text-first p:not(:last-child),
