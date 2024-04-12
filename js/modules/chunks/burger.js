@@ -25,27 +25,31 @@ import { _slideUp, _slideToggle } from '../chunks/spollers.js';
 
     let unlock = true;
 
-    spollers.forEach((spoller) => {
-      const link = spoller.firstElementChild;
-      const list = link.nextElementSibling;
+    if (spollers.length > 0) {
+      spollers.forEach((spoller) => {
+        const link = spoller.firstElementChild;
+        const list = link.nextElementSibling;
 
-      _slideUp(list, speedSpollers);
+        if (link && list) {
+          _slideUp(list, speedSpollers);
 
-      link.addEventListener('click', (e) => {
-        if (breakpoint >= window.innerWidth) {
-          e.preventDefault();
+          link.addEventListener('click', (e) => {
+            if (breakpoint >= window.innerWidth) {
+              e.preventDefault();
 
-          if (unlock) {
-            unlock = false;
+              if (unlock) {
+                unlock = false;
 
-            _slideToggle(list, speedSpollers);
+                _slideToggle(list, speedSpollers);
 
-            link.classList.toggle('_active');
+                link.classList.toggle('_active');
 
-            setTimeout(() => (unlock = true), speedSpollers);
-          }
+                setTimeout(() => (unlock = true), speedSpollers);
+              }
+            }
+          });
         }
       });
-    });
+    }
   }
 })();
