@@ -11,6 +11,7 @@ import userDevice from '../functions/is_device.js';
 
     const toggle = item.querySelector('[data-text-toggle]');
 
+    paragraphs.classList.add('_no-show');
     toggle.style.display = 'none';
 
     const handleVisible = () => {
@@ -19,6 +20,8 @@ import userDevice from '../functions/is_device.js';
       paragraphs.style.webkitBoxOrient = 'vertical';
       paragraphs.style.overflow = 'visible';
       paragraphs.style.maxHeight = '100%';
+
+      paragraphs.classList.add('_no-show');
     };
 
     const handleHidden = () => {
@@ -26,6 +29,8 @@ import userDevice from '../functions/is_device.js';
       paragraphs.style.display = '-webkit-box';
       paragraphs.style.webkitBoxOrient = 'vertical';
       paragraphs.style.overflow = 'hidden';
+
+      paragraphs.classList.remove('_no-show');
 
       if (paragraphs.querySelectorAll('ul, ol').length > 0) {
         const maxHeight = lines * parseFloat(window.getComputedStyle(paragraphs).lineHeight) - 10;
@@ -42,6 +47,7 @@ import userDevice from '../functions/is_device.js';
       const linesCount = Math.round(blockHeight / lineHeight);
 
       if (linesCount <= lines) {
+        paragraphs.classList.add('_no-show');
         toggle.style.display = 'none';
 
         return;
@@ -70,9 +76,13 @@ import userDevice from '../functions/is_device.js';
       if (paragraphs.style.overflow === 'hidden') {
         toggle.innerText = 'Ver Menos...';
 
+        paragraphs.classList.add('_active');
+
         handleVisible();
       } else {
         toggle.innerText = 'Ver Mais...';
+
+        paragraphs.classList.remove('_active');
 
         handleHidden();
       }
