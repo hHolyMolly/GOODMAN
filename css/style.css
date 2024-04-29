@@ -128,6 +128,7 @@ a {
   --grey-600: #767676;
   --grey-700: #525252;
   --shadow-main: 0px 2px 6px 0px #10101014;
+  --shadow-text: 2px 2px 4px #003700;
   --background-page: var(--green-100);
   --font-family: "Poppins", sans-serif;
 }
