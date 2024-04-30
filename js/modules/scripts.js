@@ -47,3 +47,41 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
     }
   }
 })();
+
+(() => {
+  const items = document.querySelectorAll('.table-card-dropdown');
+  items.forEach((item) => {
+    const link = item.querySelector('div.table-card-dropdown__link');
+    const close = item.querySelector('div.table-card-dropdown__top-close');
+    const dropdown = item.querySelector('.table-card-dropdown__body');
+
+    const removeClass = () => {
+      const dropdowns = document.querySelectorAll('.table-card-dropdown__body');
+      dropdowns.forEach((element) => {
+        element.classList.remove('_active');
+      });
+    };
+
+    if (link && close && dropdown) {
+      link.addEventListener('click', (e) => {
+        if (dropdown.classList.contains('_active')) {
+          dropdown.classList.remove('_active');
+        } else {
+          removeClass();
+
+          dropdown.classList.add('_active');
+        }
+
+        e.stopPropagation();
+      });
+
+      close.addEventListener('click', () => {
+        removeClass();
+      });
+
+      document.addEventListener('click', () => {
+        removeClass();
+      });
+    }
+  });
+})();
