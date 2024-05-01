@@ -96,7 +96,6 @@
 }
 .table-content-card__body {
   display: flex;
-  border-bottom: 1px solid var(--grey-300);
 }
 @media (max-width: 751.98px) {
   .table-content-card__body {
@@ -155,6 +154,7 @@
   }
 }
 .table-content-card__show {
+  margin-top: 1px;
   padding: 2px 16px;
   display: flex;
   justify-content: center;
@@ -207,9 +207,6 @@
 }
 .table-content-card__show._active:after {
   transform: rotate(180deg);
-}
-.table-content-card__show._active:before {
-  top: 0px;
 }
 
 .table-card-center {
@@ -369,6 +366,9 @@
   font-weight: 700;
 }
 
+.table-content-card-dropdown {
+  border-top: 1px solid var(--grey-300);
+}
 .table-content-card-dropdown__body {
   width: 100%;
   display: flex;
