@@ -349,7 +349,7 @@
     gap: calc(12px + 12 * (100vw - 320px) / 856);
   }
 }
-.know-for-start__row {
+.know-for-start__row a {
   min-height: 108px;
   display: grid;
   grid-template-columns: 42px 1fr;
@@ -358,12 +358,12 @@
   box-shadow: var(--shadow-main);
   background-color: var(--white);
 }
-.know-for-start__row div {
+.know-for-start__row a div {
   padding: 15px;
   display: flex;
   align-items: center;
 }
-.know-for-start__row div p {
+.know-for-start__row a div p {
   /* Если меньше контейнера */
   font-size: 18px;
   font-weight: 500;
@@ -371,11 +371,11 @@
   color: var(--green-600) !important;
 }
 @media (max-width: 1176px) {
-  .know-for-start__row div p {
+  .know-for-start__row a div p {
     font-size: calc(16px + 2 * (100vw - 320px) / 856);
   }
 }
-.know-for-start__row:before {
+.know-for-start__row a:before {
   padding: 4px;
   content: counter(know-for-start-list-counter);
   counter-increment: know-for-start-list-counter;
@@ -391,24 +391,24 @@
   color: var(--white) !important;
 }
 @media (min-width: 767.98px) {
-  .know-for-start__row {
+  .know-for-start__row a {
     margin-bottom: 20px;
   }
 }
 @media (any-hover: hover) {
-  .know-for-start__row {
+  .know-for-start__row a {
     transition: background-color 0.2s ease 0s;
   }
-  .know-for-start__row div p {
+  .know-for-start__row a div p {
     transition: color 0.2s ease 0s;
   }
-  .know-for-start__row:hover {
+  .know-for-start__row a:hover {
     background-color: var(--green-600);
   }
-  .know-for-start__row:hover:before {
+  .know-for-start__row a:hover:before {
     color: var(--yellow-200) !important;
   }
-  .know-for-start__row:hover div p {
+  .know-for-start__row a:hover div p {
     color: var(--yellow-200) !important;
   }
 }
