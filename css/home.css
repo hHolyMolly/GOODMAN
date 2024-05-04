@@ -368,7 +368,7 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 144.4444444444%;
-  color: var(--green-600);
+  color: var(--green-600) !important;
 }
 @media (max-width: 1176px) {
   .know-for-start__row div p {
@@ -388,7 +388,7 @@
   font-weight: 600;
   line-height: 140%;
   text-align: center;
-  color: var(--white);
+  color: var(--white) !important;
 }
 @media (min-width: 767.98px) {
   .know-for-start__row {
@@ -406,7 +406,7 @@
     background-color: var(--green-600);
   }
   .know-for-start__row:hover:before {
-    color: var(--yellow-200);
+    color: var(--yellow-200) !important;
   }
   .know-for-start__row:hover div p {
     color: var(--yellow-200) !important;
