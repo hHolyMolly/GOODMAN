@@ -1,0 +1,45 @@
+@charset "UTF-8";
+:root {
+  --white: #ffffff;
+  --black-900: #101010;
+  --yellow-200: #ffea4d;
+  --green-100: #e4f2ea;
+  --green-150: #cde9d9;
+  --green-200: #b7e3c9;
+  --green-350: #4c966a;
+  --green-400: #00a543;
+  --green-500: #008837;
+  --green-600: #006a2b;
+  --green-700: #005020;
+  --red-300: #da1612;
+  --blue-400: #3c5bff;
+  --grey-300: #e2e2e2;
+  --grey-400: #cfcfcf;
+  --grey-500: #929292;
+  --grey-600: #767676;
+  --grey-700: #525252;
+  --shadow-main: 0px 2px 6px 0px #10101014;
+  --shadow-text: 2px 2px 4px #003700;
+  --background-page: var(--green-100);
+  --font-family: "Poppins", sans-serif;
+}
+
+.game-link__content {
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Если меньше контейнера */
+  min-height: 472px;
+}
+@media (max-width: 1176px) {
+  .game-link__content {
+    min-height: calc(328px + 144 * (100vw - 320px) / 856);
+  }
+}
+.game-link__buttons {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
