@@ -540,17 +540,10 @@
 }
 
 .popular-table-pc_3-4 .popular-table-pc__info {
-  /* Если меньше контейнера */
-  padding-right: 10px;
+  padding-right: 0;
   /* Если меньше контейнера */
   padding-left: 20px;
   width: 33%;
-  border-right: none;
-}
-@media (max-width: 1176px) {
-  .popular-table-pc_3-4 .popular-table-pc__info {
-    padding-right: calc(2px + 8 * (100vw - 320px) / 856);
-  }
 }
 @media (max-width: 1176px) {
   .popular-table-pc_3-4 .popular-table-pc__info {
@@ -558,57 +551,36 @@
   }
 }
 .popular-table-pc_3-4 .popular-table-pc__theme {
+  padding-right: 0;
   /* Если меньше контейнера */
-  padding-right: 15px;
-  /* Если меньше контейнера */
-  padding-left: 5px;
+  padding-left: 12px;
   width: 22%;
-  border-right: none;
 }
 @media (max-width: 1176px) {
   .popular-table-pc_3-4 .popular-table-pc__theme {
-    padding-right: calc(2px + 13 * (100vw - 320px) / 856);
-  }
-}
-@media (max-width: 1176px) {
-  .popular-table-pc_3-4 .popular-table-pc__theme {
-    padding-left: calc(2px + 3 * (100vw - 320px) / 856);
+    padding-left: calc(4px + 8 * (100vw - 320px) / 856);
   }
 }
 .popular-table-pc_3-4 .popular-table-pc__rtp {
+  padding-right: 0;
   /* Если меньше контейнера */
-  padding-right: 5px;
-  /* Если меньше контейнера */
-  padding-left: 5px;
+  padding-left: 12px;
   width: 14.5%;
-  border-right: none;
 }
 @media (max-width: 1176px) {
   .popular-table-pc_3-4 .popular-table-pc__rtp {
-    padding-right: calc(2px + 3 * (100vw - 320px) / 856);
-  }
-}
-@media (max-width: 1176px) {
-  .popular-table-pc_3-4 .popular-table-pc__rtp {
-    padding-left: calc(2px + 3 * (100vw - 320px) / 856);
+    padding-left: calc(4px + 8 * (100vw - 320px) / 856);
   }
 }
 .popular-table-pc_3-4 .popular-table-pc__min {
+  padding-right: 0;
   /* Если меньше контейнера */
-  padding-right: 5px;
-  /* Если меньше контейнера */
-  padding-left: 5px;
+  padding-left: 12px;
   width: 15%;
-  border-right: none;
 }
 @media (max-width: 1176px) {
   .popular-table-pc_3-4 .popular-table-pc__min {
-    padding-right: calc(2px + 3 * (100vw - 320px) / 856);
-  }
-}
-@media (max-width: 1176px) {
-  .popular-table-pc_3-4 .popular-table-pc__min {
-    padding-left: calc(2px + 3 * (100vw - 320px) / 856);
+    padding-left: calc(4px + 8 * (100vw - 320px) / 856);
   }
 }
 .popular-table-pc_3-4 .popular-table-pc__button {
@@ -617,7 +589,6 @@
   padding-right: 20px;
   /* Если меньше контейнера */
   padding-left: 5px;
-  border-right: none;
 }
 @media (max-width: 1176px) {
   .popular-table-pc_3-4 .popular-table-pc__button {
