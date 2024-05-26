@@ -42,6 +42,7 @@
 }
 .htoc__itemswrap {
   overflow: auto;
+  scrollbar-width: none;
 }
 .htoc__itemswrap::-webkit-scrollbar {
   width: 0;
@@ -50,7 +51,7 @@
 .htoc__itemswrap:before, .htoc__itemswrap:after {
   content: "";
   /* Если меньше контейнера */
-  width: 100px;
+  width: 60px;
   height: 32px;
   position: absolute;
   top: 0;
@@ -62,7 +63,7 @@
 }
 @media (max-width: 1176px) {
   .htoc__itemswrap:before, .htoc__itemswrap:after {
-    width: calc(40px + 60 * (100vw - 320px) / 856);
+    width: calc(40px + 20 * (100vw - 320px) / 856);
   }
 }
 .htoc__itemswrap:before {

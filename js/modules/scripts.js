@@ -97,6 +97,8 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
         el.classList.add('_no-visible-first');
       }
 
+      console.log(el.scrollWidth - el.scrollLeft === el.clientWidth);
+
       if (el.scrollWidth - el.scrollLeft === el.clientWidth) {
         el.classList.remove('_no-visible-last');
       } else {
