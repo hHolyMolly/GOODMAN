@@ -141,6 +141,7 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
 
       TOC.addEventListener('scroll', () => {
         isVisible(TOC);
+        window.alert('прокрутка');
       });
     });
 
