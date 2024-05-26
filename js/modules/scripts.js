@@ -1,51 +1,44 @@
 import { _slideUp, _slideToggle } from './chunks/spollers.js';
+// import userDevice from './functions/body_lock.js';
 
 (() => {
-  const spoller = document.querySelector('.htoc__title');
-  const list = document.querySelector('.htoc__itemswrap');
+  const header = document.querySelector('.header');
 
-  let unlock = true;
+  document.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-  const speedSpollers = 500;
-
-  if (spoller && list) {
-    _slideUp(list, speedSpollers);
-
-    spoller.addEventListener('click', () => {
-      if (unlock) {
-        unlock = false;
-
-        _slideToggle(list, speedSpollers);
-
-        spoller.classList.toggle('_active');
-
-        setTimeout(() => (unlock = true), speedSpollers);
-      }
-    });
-
-    const links = document.querySelectorAll('.ht_toc_list li a');
-    if (links.length > 0) {
-      links.forEach((link) => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-
-          const targetID = link.getAttribute('href').substring(1);
-
-          const targetElement = document.getElementById(targetID);
-
-          if (targetElement) {
-            const offset = 100;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
-
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth',
-            });
-          }
-        });
-      });
+    if (scrollPosition > 100) {
+      header.classList.add('_scroll');
     }
-  }
+
+    if (scrollPosition < 50) {
+      header.classList.remove('_scroll');
+    }
+  });
+})();
+
+(() => {
+  document.addEventListener('click', (e) => {
+    const { target } = e;
+
+    if (target.closest('.ht_toc_list li a')) {
+      e.preventDefault();
+
+      const targetID = target.getAttribute('href').substring(1);
+
+      const targetElement = document.getElementById(targetID);
+
+      if (targetElement) {
+        const offset = 100;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }
+  });
 })();
 
 (() => {
@@ -84,4 +77,85 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
       });
     }
   });
+})();
+
+// TOC
+(() => {
+  const header = document.querySelector('.header');
+
+  const wrap = document.querySelector('.page .htoc');
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('header__htoc');
+  header.appendChild(newDiv);
+  newDiv.appendChild(wrap.cloneNode(true));
+
+  if (header && wrap && newDiv) {
+    const isVisible = (el) => {
+      if (el.scrollLeft === 0) {
+        el.classList.remove('_no-visible-first');
+      } else {
+        el.classList.add('_no-visible-first');
+      }
+
+      if (el.scrollWidth - el.scrollLeft === el.clientWidth) {
+        el.classList.remove('_no-visible-last');
+      } else {
+        el.classList.add('_no-visible-last');
+      }
+    };
+
+    document.querySelectorAll('.htoc__itemswrap').forEach((TOC) => {
+      isVisible(TOC);
+    });
+
+    newDiv.style.display = 'none';
+
+    (() => {
+      const list = document.querySelectorAll('.htoc__itemswrap ul');
+      if (list.length > 0) {
+        list.forEach((TOC) => {
+          const itemsReverse = Array.from(TOC.querySelectorAll('li')).reverse();
+
+          if (TOC && itemsReverse.length > 0) {
+            TOC.innerHTML = '';
+
+            itemsReverse.forEach((item) => {
+              TOC.appendChild(item);
+            });
+          }
+        });
+      }
+    })();
+
+    document.querySelectorAll('.htoc__itemswrap').forEach((TOC) => {
+      TOC.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const delta = e.deltaY;
+
+        TOC.scrollLeft += delta;
+      });
+
+      TOC.addEventListener('scroll', () => {
+        isVisible(TOC);
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (wrap.getBoundingClientRect().top < 60) {
+        newDiv.style.display = 'block';
+      } else {
+        newDiv.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('load', () => {
+      if (wrap.getBoundingClientRect().top < 60) {
+        newDiv.style.display = 'block';
+      } else {
+        newDiv.style.display = 'none';
+      }
+    });
+  }
 })();

@@ -21,7 +21,7 @@ import { _slideUp, _slideToggle } from '../chunks/spollers.js';
       }
     });
 
-    const spollers = menu.querySelectorAll('.menu-item-object-category.menu-item-has-children');
+    const spollers = menu.querySelectorAll('.menu-item-has-children');
 
     let unlock = true;
 
@@ -31,9 +31,14 @@ import { _slideUp, _slideToggle } from '../chunks/spollers.js';
         const list = link.nextElementSibling;
 
         if (link && list) {
+          const newArrow = document.createElement('div');
+          newArrow.classList.add('arrow');
+
+          spoller.insertBefore(newArrow, link.nextSibling);
+
           _slideUp(list, speedSpollers);
 
-          link.addEventListener('click', (e) => {
+          newArrow.addEventListener('click', (e) => {
             if (breakpoint >= window.innerWidth) {
               e.preventDefault();
 
@@ -42,48 +47,22 @@ import { _slideUp, _slideToggle } from '../chunks/spollers.js';
 
                 _slideToggle(list, speedSpollers);
 
-                if (link.classList.contains('_active')) {
-                  link.classList.remove('_active');
+                if (newArrow.parentElement.classList.contains('_active')) {
+                  newArrow.parentElement.classList.remove('_active');
                 } else {
-                  link.classList.add('_active');
+                  newArrow.parentElement.classList.add('_active');
                 }
 
-                menu.querySelectorAll('.menu-item-object-category.menu-item-has-children').forEach((item) => {
-                  const elButton = item.firstElementChild;
+                if (spoller.classList.contains('menu-item-object-category')) {
+                  menu.querySelectorAll('.menu-item-object-category.menu-item-has-children').forEach((item) => {
+                    const elButton = item.querySelector('.arrow');
 
-                  if (elButton !== link) {
-                    elButton.classList.remove('_active');
-                    _slideUp(elButton.nextElementSibling, speedSpollers);
-                  }
-                });
-
-                setTimeout(() => (unlock = true), speedSpollers);
-              }
-            }
-          });
-        }
-      });
-    }
-
-    const childrenSpollers = menu.querySelectorAll('.menu-item-has-children');
-
-    if (childrenSpollers.length > 0) {
-      childrenSpollers.forEach((spoller) => {
-        const link = spoller.firstElementChild;
-        const list = link.nextElementSibling;
-
-        if (link && list) {
-          _slideUp(list, speedSpollers);
-
-          link.addEventListener('click', (e) => {
-            if (breakpoint >= window.innerWidth) {
-              e.preventDefault();
-
-              if (unlock) {
-                unlock = false;
-
-                _slideToggle(list, speedSpollers);
-                link.classList.toggle('_active');
+                    if (elButton !== newArrow) {
+                      elButton.parentElement.classList.remove('_active');
+                      _slideUp(elButton.nextElementSibling, speedSpollers);
+                    }
+                  });
+                }
 
                 setTimeout(() => (unlock = true), speedSpollers);
               }
@@ -92,5 +71,17 @@ import { _slideUp, _slideToggle } from '../chunks/spollers.js';
         }
       });
     }
+
+    document.addEventListener('click', (e) => {
+      const { target } = e;
+
+      if (target.closest('.htoc__itemswrap li')) {
+        if (menu.classList.contains('_active')) {
+          burger.classList.remove('_active');
+          menu.classList.remove('_active');
+          bodyUnLock();
+        }
+      }
+    });
   }
 })();
