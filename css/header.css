@@ -78,6 +78,11 @@
 .header .htoc .htoc__itemswrap:after {
   right: 15px;
 }
+@media (max-width: 767.98px) {
+  .header .htoc .htoc__itemswrap:before, .header .htoc .htoc__itemswrap:after {
+    display: none;
+  }
+}
 .header .header__htoc {
   padding: 6px 0;
   width: 100%;
