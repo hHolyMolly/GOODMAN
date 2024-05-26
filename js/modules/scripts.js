@@ -97,9 +97,9 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
         el.classList.add('_no-visible-first');
       }
 
-      console.log(el.scrollWidth - el.scrollLeft === el.clientWidth);
+      console.log(el.scrollWidth - el.scrollLeft - 100, el.clientWidth);
 
-      if (el.scrollWidth - el.scrollLeft === el.clientWidth) {
+      if (el.scrollWidth - el.scrollLeft - 15 <= el.clientWidth) {
         el.classList.remove('_no-visible-last');
       } else {
         el.classList.add('_no-visible-last');
@@ -141,7 +141,6 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
 
       TOC.addEventListener('scroll', () => {
         isVisible(TOC);
-        window.alert('прокрутка');
       });
     });
 
