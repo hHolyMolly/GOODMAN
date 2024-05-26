@@ -75,6 +75,25 @@
 })();
 
 (() => {
+  const slidersArr = document.querySelectorAll('.table-adaptive-mobile.swiper');
+  const paginationArr = document.querySelectorAll('.table-adaptive-mobile .swiper-pagination');
+
+  slidersArr.forEach((slider, index) => {
+    new Swiper(slider, {
+      grabCursor: true,
+      speed: 500,
+      spaceBetween: 32,
+      slidesPerView: 1,
+
+      pagination: {
+        el: paginationArr[index],
+        clickable: true,
+      },
+    });
+  });
+})();
+
+(() => {
   const slidersArr = document.querySelectorAll('.best-slot-machines .swiper');
   const arrowPrev = document.querySelectorAll('.best-slot-machines__arrows .swiper-button-prev');
   const arrowNext = document.querySelectorAll('.best-slot-machines__arrows .swiper-button-next');

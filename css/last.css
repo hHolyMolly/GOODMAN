@@ -276,6 +276,11 @@
   border: 1px solid var(--white);
   overflow-wrap: anywhere;
 }
+@media (max-width: 899.98px) {
+  .table-adaptive-pc {
+    display: none;
+  }
+}
 .table-adaptive-pc__header {
   width: 100%;
   display: flex;
@@ -318,4 +323,74 @@
 }
 .table-adaptive-pc__row:not(:last-child) .table-adaptive-pc__item {
   border-bottom: 1px solid var(--green-200);
+}
+
+.table-adaptive-mobile.swiper .swiper-pagination {
+  margin: 0 auto;
+  gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.table-adaptive-mobile.swiper .swiper-pagination .swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  cursor: pointer;
+  border: 1px solid var(--green-600);
+  border-radius: 50%;
+  transition: background-color 0.3s ease 0s;
+  background-color: var(--green-200);
+}
+.table-adaptive-mobile.swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--green-600);
+}
+.table-adaptive-mobile .swiper-wrapper:not(:last-child) {
+  margin-bottom: 24px;
+}
+@media (min-width: 899.98px) {
+  .table-adaptive-mobile {
+    display: none;
+  }
+}
+.table-adaptive-mobile .swiper-slide {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--white);
+}
+.table-adaptive-mobile__row {
+  display: flex;
+}
+.table-adaptive-mobile__row:not(:last-child) .table-adaptive-mobile__head {
+  border-bottom: 1px solid var(--white);
+}
+.table-adaptive-mobile__row:not(:last-child) .table-adaptive-mobile__item {
+  border-bottom: 1px solid var(--green-200);
+}
+.table-adaptive-mobile__row p:not(.step__tabs-count):not(:last-child),
+.table-adaptive-mobile__row ul:not(.step__tabs-count):not(:last-child),
+.table-adaptive-mobile__row ol:not(.step__tabs-count):not(:last-child) {
+  margin-bottom: 0px;
+}
+.table-adaptive-mobile__row strong,
+.table-adaptive-mobile__row b {
+  color: var(--black-900);
+}
+.table-adaptive-mobile__head {
+  padding: 24px;
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--green-200);
+  color: var(--green-600);
+}
+.table-adaptive-mobile__item {
+  padding: 24px;
+  width: 57%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--white);
 }
