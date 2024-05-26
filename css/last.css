@@ -219,3 +219,103 @@
 .step-block__red .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #da1612 !important;
 }
+
+.table-adaptive {
+  color: var(--grey-700);
+}
+.table-adaptive h2:not(:last-child) {
+  margin-bottom: 12px;
+}
+.table-adaptive ul {
+  gap: 8px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.table-adaptive ul li {
+  list-style-type: disc;
+}
+.table-adaptive ol {
+  gap: 8px;
+  padding-left: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.table-adaptive ol li {
+  list-style-type: decimal;
+}
+.table-adaptive p:not(.step__tabs-count):not(:last-child),
+.table-adaptive ul:not(.step__tabs-count):not(:last-child),
+.table-adaptive ol:not(.step__tabs-count):not(:last-child) {
+  margin-bottom: 24px;
+}
+.table-adaptive a:not(.button) {
+  color: var(--green-600);
+  font-weight: 500;
+  text-decoration: underline;
+}
+@media (any-hover: hover) {
+  .table-adaptive a:not(.button):hover {
+    text-decoration: none;
+  }
+}
+.table-adaptive:not(:last-child) {
+  /* Если меньше контейнера */
+  margin-bottom: 54px;
+}
+@media (max-width: 1176px) {
+  .table-adaptive:not(:last-child) {
+    margin-bottom: calc(40px + 14 * (100vw - 320px) / 856);
+  }
+}
+
+.table-adaptive-pc {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--white);
+  overflow-wrap: anywhere;
+}
+.table-adaptive-pc__header {
+  width: 100%;
+  display: flex;
+}
+.table-adaptive-pc__header .table-adaptive-pc__item {
+  background-color: var(--green-200);
+  color: var(--green-600);
+}
+.table-adaptive-pc__header .table-adaptive-pc__item:not(:last-child) {
+  border-right-color: var(--white);
+}
+.table-adaptive-pc__item {
+  gap: 8px;
+  width: 100%;
+  min-height: 72px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--white);
+}
+.table-adaptive-pc__item:not(:last-child) {
+  border-right: 1px solid var(--green-200);
+}
+.table-adaptive-pc__item p:not(.step__tabs-count):not(:last-child),
+.table-adaptive-pc__item ul:not(.step__tabs-count):not(:last-child),
+.table-adaptive-pc__item ol:not(.step__tabs-count):not(:last-child) {
+  margin-bottom: 0px;
+}
+.table-adaptive-pc__item strong,
+.table-adaptive-pc__item b {
+  color: var(--black-900);
+}
+.table-adaptive-pc__items {
+  display: flex;
+  flex-direction: column;
+}
+.table-adaptive-pc__row {
+  display: flex;
+}
+.table-adaptive-pc__row:not(:last-child) .table-adaptive-pc__item {
+  border-bottom: 1px solid var(--green-200);
+}

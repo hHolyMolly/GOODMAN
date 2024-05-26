@@ -159,3 +159,25 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
     });
   }
 })();
+
+(() => {
+  const tablePCItems = document.querySelectorAll('.table-adaptive-pc');
+  tablePCItems.forEach((tablePC) => {
+    const tableItems = tablePC.querySelectorAll('.table-adaptive-pc__item');
+    const tableHeader = tablePC.querySelector('.table-adaptive-pc__header');
+
+    const length = tableHeader.children.length;
+
+    tableItems.forEach((item) => {
+      if (length % 2 !== 0) {
+        item.style.width = `${100 / length + 0.3}%`;
+        item.style.flexBasis = `${100 / length + 0.3}%`;
+
+        return;
+      }
+
+      item.style.width = `${100 / length}%`;
+      item.style.flexBasis = `${100 / length}%`;
+    });
+  });
+})();
