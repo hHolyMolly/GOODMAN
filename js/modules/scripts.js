@@ -1,5 +1,4 @@
 import { _slideUp, _slideToggle } from './chunks/spollers.js';
-// import userDevice from './functions/body_lock.js';
 
 (() => {
   const header = document.querySelector('.header');
@@ -83,80 +82,122 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
 (() => {
   const header = document.querySelector('.header');
 
-  const wrap = document.querySelector('.page .htoc');
-  const newDiv = document.createElement('div');
-  newDiv.classList.add('header__htoc');
-  header.appendChild(newDiv);
-  newDiv.appendChild(wrap.cloneNode(true));
+  const wrap = document.querySelector('.ez-toc-v2_0_66_1.counter-hierarchy.ez-toc-counter.ez-toc-grey.ez-toc-container-direction');
+  if (wrap) {
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('header__htoc');
 
-  if (header && wrap && newDiv) {
-    const isVisible = (el) => {
-      if (el.scrollLeft === 0) {
-        el.classList.remove('_no-visible-first');
-      } else {
-        el.classList.add('_no-visible-first');
-      }
+    header.appendChild(newDiv);
+    newDiv.appendChild(wrap.cloneNode(true));
 
-      if (el.scrollWidth - el.scrollLeft - 15 <= el.clientWidth) {
-        el.classList.remove('_no-visible-last');
-      } else {
-        el.classList.add('_no-visible-last');
-      }
-    };
+    newDiv.querySelector('.ez-toc-v2_0_66_1.counter-hierarchy.ez-toc-counter.ez-toc-grey.ez-toc-container-direction').removeAttribute('id');
 
-    document.querySelectorAll('.htoc__itemswrap').forEach((TOC) => {
-      isVisible(TOC);
-    });
+    if (header && wrap && newDiv) {
+      const isVisible = (el) => {
+        if (el.scrollLeft === 0) {
+          el.classList.remove('_no-visible-first');
+        } else {
+          el.classList.add('_no-visible-first');
+        }
 
-    newDiv.style.display = 'none';
+        if (el.scrollWidth - el.scrollLeft - 15 <= el.clientWidth) {
+          el.classList.remove('_no-visible-last');
+        } else {
+          el.classList.add('_no-visible-last');
+        }
+      };
 
-    (() => {
-      const list = document.querySelectorAll('.htoc__itemswrap ul');
-      if (list.length > 0) {
-        list.forEach((TOC) => {
-          const itemsReverse = Array.from(TOC.querySelectorAll('li')).reverse();
-
-          if (TOC && itemsReverse.length > 0) {
-            TOC.innerHTML = '';
-
-            itemsReverse.forEach((item) => {
-              TOC.appendChild(item);
-            });
-          }
-        });
-      }
-    })();
-
-    document.querySelectorAll('.htoc__itemswrap').forEach((TOC) => {
-      TOC.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const delta = e.deltaY;
-
-        TOC.scrollLeft += delta;
-      });
-
-      TOC.addEventListener('scroll', () => {
+      document.querySelectorAll('.ez-toc-v2_0_66_1.counter-hierarchy.ez-toc-counter.ez-toc-grey.ez-toc-container-direction nav').forEach((TOC) => {
         isVisible(TOC);
       });
-    });
 
-    window.addEventListener('scroll', () => {
-      if (wrap.getBoundingClientRect().top < 60) {
-        newDiv.style.display = 'block';
-      } else {
-        newDiv.style.display = 'none';
-      }
-    });
+      newDiv.style.display = 'none';
 
-    window.addEventListener('load', () => {
-      if (wrap.getBoundingClientRect().top < 60) {
-        newDiv.style.display = 'block';
-      } else {
-        newDiv.style.display = 'none';
-      }
-    });
+      (() => {
+        const list = document.querySelectorAll('.ez-toc-v2_0_66_1.counter-hierarchy.ez-toc-counter.ez-toc-grey.ez-toc-container-direction nav ul');
+        if (list.length > 0) {
+          list.forEach((TOC) => {
+            const itemsReverse = Array.from(TOC.querySelectorAll('li')).reverse();
+
+            if (TOC && itemsReverse.length > 0) {
+              TOC.innerHTML = '';
+
+              itemsReverse.forEach((item) => {
+                TOC.appendChild(item);
+              });
+            }
+          });
+        }
+      })();
+
+      document.querySelectorAll('.ez-toc-v2_0_66_1.counter-hierarchy.ez-toc-counter.ez-toc-grey.ez-toc-container-direction nav').forEach((TOC) => {
+        TOC.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const delta = e.deltaY;
+
+          TOC.scrollLeft += delta;
+        });
+
+        TOC.addEventListener('scroll', () => {
+          isVisible(TOC);
+        });
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        TOC.addEventListener('mousedown', (e) => {
+          isDown = true;
+          TOC.classList.add('active');
+          startX = e.pageX - TOC.offsetLeft;
+          scrollLeft = TOC.scrollLeft;
+        });
+
+        TOC.addEventListener('mouseleave', () => {
+          isDown = false;
+          TOC.classList.remove('active');
+        });
+
+        TOC.addEventListener('mouseup', () => {
+          isDown = false;
+          TOC.classList.remove('active');
+        });
+
+        TOC.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - TOC.offsetLeft;
+          const walk = (x - startX) * 1.5; // Увеличиваем значение для ускорения прокрутки
+          TOC.scrollLeft = scrollLeft - walk;
+        });
+
+        // Отключаем стандартное поведение браузера для ссылок при перетаскивании
+        document.addEventListener('dragstart', (e) => {
+          const { target } = e;
+
+          if (target.closest('a')) {
+            e.preventDefault();
+          }
+        });
+      });
+
+      const showFunc = () => {
+        const sidebarBox = document.querySelector('.sidebar-box_bottom');
+
+        if (wrap.getBoundingClientRect().top < 60) {
+          newDiv.style.display = 'block';
+          sidebarBox.classList.add('_scroll');
+        } else {
+          newDiv.style.display = 'none';
+          sidebarBox.classList.remove('_scroll');
+        }
+      };
+
+      window.addEventListener('scroll', showFunc);
+      window.addEventListener('load', showFunc);
+    }
   }
 })();
 

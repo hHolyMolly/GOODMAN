@@ -25,51 +25,53 @@ import { _slideUp, _slideToggle } from '../chunks/spollers.js';
 
     let unlock = true;
 
-    if (spollers.length > 0) {
-      spollers.forEach((spoller) => {
-        const link = spoller.firstElementChild;
-        const list = link.nextElementSibling;
+    if (window.innerWidth <= 1099.98) {
+      if (spollers.length > 0) {
+        spollers.forEach((spoller) => {
+          const link = spoller.firstElementChild;
+          const list = link.nextElementSibling;
 
-        if (link && list) {
-          const newArrow = document.createElement('div');
-          newArrow.classList.add('arrow');
+          if (link && list) {
+            const newArrow = document.createElement('div');
+            newArrow.classList.add('arrow');
 
-          spoller.insertBefore(newArrow, link.nextSibling);
+            spoller.insertBefore(newArrow, link.nextSibling);
 
-          _slideUp(list, speedSpollers);
+            _slideUp(list, speedSpollers);
 
-          newArrow.addEventListener('click', (e) => {
-            if (breakpoint >= window.innerWidth) {
-              e.preventDefault();
+            newArrow.addEventListener('click', (e) => {
+              if (breakpoint >= window.innerWidth) {
+                e.preventDefault();
 
-              if (unlock) {
-                unlock = false;
+                if (unlock) {
+                  unlock = false;
 
-                _slideToggle(list, speedSpollers);
+                  _slideToggle(list, speedSpollers);
 
-                if (newArrow.parentElement.classList.contains('_active')) {
-                  newArrow.parentElement.classList.remove('_active');
-                } else {
-                  newArrow.parentElement.classList.add('_active');
+                  if (newArrow.parentElement.classList.contains('_active')) {
+                    newArrow.parentElement.classList.remove('_active');
+                  } else {
+                    newArrow.parentElement.classList.add('_active');
+                  }
+
+                  if (spoller.classList.contains('menu-item-object-category')) {
+                    menu.querySelectorAll('.menu-item-object-category.menu-item-has-children').forEach((item) => {
+                      const elButton = item.querySelector('.arrow');
+
+                      if (elButton !== newArrow) {
+                        elButton.parentElement.classList.remove('_active');
+                        _slideUp(elButton.nextElementSibling, speedSpollers);
+                      }
+                    });
+                  }
+
+                  setTimeout(() => (unlock = true), speedSpollers);
                 }
-
-                if (spoller.classList.contains('menu-item-object-category')) {
-                  menu.querySelectorAll('.menu-item-object-category.menu-item-has-children').forEach((item) => {
-                    const elButton = item.querySelector('.arrow');
-
-                    if (elButton !== newArrow) {
-                      elButton.parentElement.classList.remove('_active');
-                      _slideUp(elButton.nextElementSibling, speedSpollers);
-                    }
-                  });
-                }
-
-                setTimeout(() => (unlock = true), speedSpollers);
               }
-            }
-          });
-        }
-      });
+            });
+          }
+        });
+      }
     }
 
     document.addEventListener('click', (e) => {

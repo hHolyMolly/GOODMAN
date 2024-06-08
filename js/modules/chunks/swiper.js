@@ -84,6 +84,7 @@
       speed: 500,
       spaceBetween: 32,
       slidesPerView: 1,
+      autoHeight: true,
 
       pagination: {
         el: paginationArr[index],
@@ -167,6 +168,25 @@
 
         479.98: {
           slidesPerView: 2,
+        },
+      },
+    });
+  });
+})();
+
+(() => {
+  const slidersArr = document.querySelectorAll('.table-with-bonus__swiper .swiper');
+
+  slidersArr.forEach((slider, index) => {
+    new Swiper(slider, {
+      grabCursor: true,
+      speed: 500,
+      spaceBetween: 16,
+      slidesPerView: 1.3,
+
+      breakpoints: {
+        499.98: {
+          slidesPerView: 2.3,
         },
       },
     });
