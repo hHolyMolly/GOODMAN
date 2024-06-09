@@ -1676,30 +1676,41 @@
               </article>
 
               <aside class="sidebar" style="padding-top: 0">
-                <div class="sidebar-box">
-                  <div class="sidebar-row">
+                <div class="sidebar-box" data-spollers>
+                  <div class="sidebar-row sidebar-row--dropdown">
                     <div class="sidebar-card">
-                      <a class="sidebar-card__image" href="https://pikebit.com/pt" target="_blank">
-                        <img src="./img/sidebar/big_cards/01.png" alt="Jogar agora" />
-                      </a>
+                      <div class="sidebar-card__content">
+                        <a class="sidebar-card__image" href="https://pikebit.com/pt" target="_blank">
+                          <img src="./img/sidebar/big_cards/01.png" alt="Jogar agora" />
+                        </a>
 
-                      <a class="sidebar-card__title" href="https://pikebit.com/pt" target="_blank"> Recomendação da nossa equipe </a>
+                        <a class="sidebar-card__title" href="https://pikebit.com/pt" target="_blank"> 50 Rodadas Grátis Sem Depósito + 200% até R$20.000 </a>
 
-                      <a class="button button_green" href="https://pikebit.com/pt" target="_blank"> JOGAR AGORA </a>
+                        <a class="button button_green" href="https://pikebit.com/pt" target="_blank"> JOGAR AGORA </a>
 
-                      <button class="sidebar-card__apply">T&C Apply</button>
+                        <button class="sidebar-card__apply">T&C Apply</button>
 
-                      <div class="sidebar-card__sub-info">O jogo só está disponível para pessoas maiores de idade (18 anos)</div>
+                        <div class="sidebar-card__sub-info">O jogo só está disponível para pessoas maiores de idade (18 anos)</div>
+                      </div>
+
+                      <button class="table-with-bonus-card__show" data-spoller type="button">
+                        <span class="hidden">Abrir</span>
+
+                        <span class="open">Fechar</span>
+                      </button>
+
+                      <div class="table-with-bonus-card__dropdown">
+                        <p>
+                          <a href="#">Receba um bônus especial</a>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="sidebar-box sidebar-box_bottom">
                   <div class="sidebar-row">
-                    <div class="sidebar-box__head">
-                      Os jogos mais <br />
-                      populares do Brasil
-                    </div>
+                    <div class="sidebar-box__head">Melhores cassinos 2024</div>
 
                     <div class="sidebar-popular">
                       <div class="sidebar-popular__card">
@@ -1708,10 +1719,7 @@
                         </a>
 
                         <div class="sidebar-popular__content">
-                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank">
-                            Jogar <br />
-                            Aviator</a
-                          >
+                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"> OBTER BÔNUS </a>
                         </div>
                       </div>
 
@@ -1721,10 +1729,7 @@
                         </a>
 
                         <div class="sidebar-popular__content">
-                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"
-                            >Jogar <br />
-                            Mines</a
-                          >
+                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"> OBTER BÔNUS </a>
                         </div>
                       </div>
 
@@ -1734,10 +1739,7 @@
                         </a>
 
                         <div class="sidebar-popular__content">
-                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"
-                            >Jogar <br />
-                            Spaceman</a
-                          >
+                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"> OBTER BÔNUS</a>
                         </div>
                       </div>
 
@@ -1747,10 +1749,7 @@
                         </a>
 
                         <div class="sidebar-popular__content">
-                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"
-                            >Jogar <br />
-                            Fortune Tiger</a
-                          >
+                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank">OBTER BÔNUS</a>
                         </div>
                       </div>
 
@@ -1760,10 +1759,7 @@
                         </a>
 
                         <div class="sidebar-popular__content">
-                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"
-                            >Jogar <br />
-                            Dragon Hatch</a
-                          >
+                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank">OBTER BÔNUS</a>
                         </div>
                       </div>
 
@@ -1773,10 +1769,7 @@
                         </a>
 
                         <div class="sidebar-popular__content">
-                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank"
-                            >Jogar <br />
-                            Fortune Rabbit</a
-                          >
+                          <a class="button button_green" href="https://pikebit.com/pt/games" target="_blank">OBTER BÔNUS</a>
                         </div>
                       </div>
                     </div>
@@ -1972,6 +1965,80 @@
 </footer>
 
     </div>
+
+    <!-- Атрибут [data-popup-speed] в админку никак подвязывать не нужно -->
+<div id="modal-wrapper" data-popup-speed="300">
+  <!-- 
+		При натяжке атрибут [data-delay-open-modal] можно подтянуть в админку, он нужен что-бы указать время, через которое откроется модальное окно при открытии сайта на мобилке
+		так же можно сделать его не обязательным к заполнению, но важно, если не заполнили в админке, то его не рендерить в диве
+		если он не будет заполнен в админке, то будет подвязано дефолтное значение с скрипта (60 сек.) можешь это указать в админке
+	-->
+
+  <div class="popup popup-mini-tables" id="popup-mini-tables" data-delay-open-modal="10">
+    <div class="popup__body">
+      <div class="popup-top">
+        <div class="popup-top__title">Bônus recomendados</div>
+
+        <button class="popup-top__right" data-popup-close type="button">
+          <span class="popup-top__text"> Fechar </span>
+
+          <div class="close-icon"></div>
+        </button>
+      </div>
+
+      <div class="popup-content">
+        <div class="popup-content__body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur harum accusamus quasi sit vel. Consequuntur rem unde quas aut in deleniti quod provident natus sunt
+          iste, fugiat veritatis et incidunt repellat, recusandae, maxime voluptatum sit id alias iusto officia beatae? Iure porro sequi aperiam iste quibusdam magnam rerum sed in?
+          Maiores distinctio non magni quis laborum, nulla odit fugiat. Ducimus, hic. Praesentium sunt, sapiente maxime dignissimos repellendus earum laborum, explicabo doloremque
+          exercitationem nihil, vel mollitia ea cupiditate! Accusamus officiis eius recusandae officia soluta necessitatibus rerum, quasi dolore suscipit id excepturi quia a
+          laborum illo. Quam repellat est aperiam dignissimos rerum. Deleniti harum hic velit placeat. Tempora debitis qui iure numquam alias deserunt hic minus nisi error nihil
+          molestiae in, magni aliquam animi veritatis deleniti sint vel vitae. Magnam repudiandae voluptate pariatur veniam nemo necessitatibus adipisci expedita sed aspernatur
+          error voluptatum, fuga, consectetur ex ab assumenda? Voluptate eos similique nisi repudiandae excepturi inventore? Quis dolore impedit possimus nam fugit expedita eum
+          molestias, sapiente omnis, amet veniam, autem debitis asperiores facere est necessitatibus repudiandae nemo magni pariatur quisquam? Totam, earum dolor id magni eos
+          officia! Autem assumenda, dolores quam optio accusantium officia odio numquam asperiores possimus voluptatibus repudiandae tenetur quasi ad eum laborum, voluptate ducimus
+          aliquam perferendis magnam nihil? Laborum, corporis. Possimus pariatur autem quidem voluptatum, dolores aperiam quasi beatae atque nulla temporibus consectetur ab rerum
+          porro culpa quae quos recusandae exercitationem doloribus voluptates fugiat voluptate error, ut necessitatibus. Ab, reprehenderit optio neque praesentium cumque quis
+          sequi nesciunt est veritatis eligendi eos at fuga, possimus, ducimus vitae ipsum obcaecati! Ratione error excepturi, beatae, odit aliquid consequatur ut explicabo quaerat
+          cum quas rem adipisci quidem perferendis recusandae! Harum vero rem laborum facilis. Sint fugiat illum sit a? Non doloremque rerum asperiores. Modi, temporibus aliquid.
+          Velit cumque, numquam voluptatum possimus non nostrum perspiciatis dolore quas neque. Incidunt dicta eaque, consectetur molestias vitae rerum autem mollitia quam minima
+          distinctio dolor enim aliquam assumenda, eum doloribus praesentium? Aperiam, perspiciatis temporibus. Cum corrupti consequatur quae assumenda blanditiis, aliquid aperiam
+          et dolore fuga, labore ipsam error soluta sit reiciendis saepe libero pariatur officiis necessitatibus eum temporibus deleniti vero! Ipsum optio perferendis ullam commodi
+          praesentium dolore, minima nam nostrum quam voluptatibus, voluptatem ea dolor vel aut unde, sunt deleniti. Eius, optio velit dolorem doloribus amet sunt doloremque dolor
+          ut at quia ex beatae repellat unde minus impedit. Eius voluptatibus aut ullam id, nulla ipsum fugit! Reprehenderit corporis suscipit exercitationem, consequuntur illum
+          inventore non aperiam hic? Aliquam magnam, voluptas blanditiis laboriosam sint illo voluptate quia numquam ex eligendi tempora natus animi deleniti accusantium magni id
+          quae corporis ratione necessitatibus officia, laudantium obcaecati, facere iste porro. Voluptates corrupti soluta, assumenda dolores voluptate placeat magnam tenetur
+          illum inventore doloremque. Itaque, architecto? Similique nam molestiae quasi animi pariatur debitis aliquid, soluta sint quas voluptate repellendus sed mollitia ex.
+          Magni fuga nemo possimus amet, aliquid illum dolorum numquam deleniti veritatis et iste quaerat commodi placeat atque laborum similique eius explicabo adipisci vel, alias
+          consequatur odit voluptates perspiciatis. Consequuntur doloribus sequi veniam eveniet praesentium neque.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="popup popup-card-bonuses" id="popup-card-bonuses" data-delay-open-modal="10">
+    <div class="popup__body">
+      <div class="popup-top">
+        <div class="popup-top__title">Bônus recomendados</div>
+
+        <button class="close-icon" data-popup-close type="button"></button>
+      </div>
+
+      <div class="popup-content">
+        <div class="popup-content__body">asdasd</div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="sticky-dropdown">
+    <button class="sticky-dropdown__close" data-sticky-dropdown-close type="button">
+      <div class="close-icon"></div>
+    </button>
+
+    <a class="sticky-dropdown__content" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, harum.</a>
+  </div>
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

@@ -4277,6 +4277,57 @@
         </div>
       </main>
 
+      <!-- Атрибут [data-popup-speed] в админку никак подвязывать не нужно -->
+      <div id="modal-wrapper" data-popup-speed="300">
+        <!-- 
+          При натяжке атрибут [data-delay-open-modal] можно подтянуть в админку, он нужен что-бы указать время, через которое откроется модальное окно при открытии сайта на мобилке
+          так же можно сделать его не обязательным к заполнению, но важно, если не заполнили в админке, то его не рендерить в диве
+          если он не будет заполнен в админке, то будет подвязано дефолтное значение с скрипта (60 сек.) можешь это указать в админке
+        -->
+
+        <div class="popup popup-card-bonuses" id="popup-card-bonuses" data-delay-open-modal="10">
+          <div class="popup__body">
+            <div class="popup-top">
+              <div class="popup-top__title">Bônus recomendados</div>
+
+              <button class="close-icon" data-popup-close type="button"></button>
+            </div>
+
+            <div class="popup-content">
+              <div class="popup-content__body">
+                <a class="popup-card-bonuses__image" href="#">
+                  <img src="./img/modals/popup-card-bonuses/01.png" loading="lazy" alt="01" />
+                </a>
+
+                <a class="popup-card-bonuses__title" href="#"> 50 Rodadas Grátis Sem Depósito + 200% até R$20.000 </a>
+
+                <a class="button button_green" href="#"> Receba um bônus especial </a>
+
+                <a class="popup-card-bonuses__link" href="#"> TODOS OS BÓNUS DE CASSINO </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticky-dropdown sticky-bonuses-pegar">
+          <button class="sticky-dropdown__close" data-sticky-dropdown-close type="button">
+            <div class="close-icon"></div>
+          </button>
+
+          <a class="sticky-dropdown__content" href="#">
+            <div class="sticky-bonuses-pegar__logo">
+              <img src="./img/modals/sticky-bonuses-pegar/01.png" loading="lazy" alt="pikebit" />
+            </div>
+
+            <div class="sticky-bonuses-pegar__text">
+              <p>50 Rodadas Grátis Sem Depósito + 200% até R$20.000</p>
+            </div>
+
+            <div class="sticky-bonuses-pegar__button">PEGAR</div>
+          </a>
+        </div>
+      </div>
+
       <footer class="footer-f">
   <div class="footer-f-top">
     <div class="container">

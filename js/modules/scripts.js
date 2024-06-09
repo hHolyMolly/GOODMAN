@@ -1,4 +1,6 @@
 import { _slideUp, _slideToggle } from './chunks/spollers.js';
+import userDevice from './functions/is_device.js';
+import { popupOpen } from './chunks/modals.js';
 
 (() => {
   const header = document.querySelector('.header');
@@ -220,5 +222,61 @@ import { _slideUp, _slideToggle } from './chunks/spollers.js';
       item.style.width = `${100 / length}%`;
       item.style.flexBasis = `${100 / length}%`;
     });
+  });
+})();
+
+(() => {
+  const items = ['popup-mini-tables', 'popup-card-bonuses'];
+
+  if (userDevice.any()) {
+    window.addEventListener('load', () => {
+      const popups = document.querySelectorAll('.popup');
+      popups.forEach((popup) => {
+        const classContains = items.some((className) => popup.classList.contains(className));
+        if (classContains) {
+          const delay = (popup.getAttribute('data-delay-open-modal') || 60) * 1000;
+
+          setTimeout(() => {
+            popupOpen(popup);
+          }, delay);
+        }
+      });
+    });
+  } else {
+    let mouseOut = false;
+
+    function handleMouseOut(e) {
+      if (!mouseOut) {
+        if (e.clientY <= 0 || e.clientX <= 0 || e.clientX >= window.innerWidth || e.clientY >= window.innerHeight) {
+          mouseOut = true;
+
+          const popups = document.querySelectorAll('.popup');
+          if (popups.length > 0) {
+            popups.forEach((popup) => {
+              const classContains = items.some((className) => popup.classList.contains(className));
+              if (classContains) {
+                popupOpen(popup);
+              }
+            });
+          }
+        }
+      }
+    }
+
+    document.addEventListener('mouseout', handleMouseOut);
+  }
+
+  const timeOpen = 90; // В секундах
+
+  document.addEventListener('click', (e) => {
+    const { target } = e;
+
+    if (target.closest('[data-sticky-dropdown-close]')) {
+      target.closest('.sticky-dropdown').classList.remove('_active');
+
+      setTimeout(() => {
+        target.closest('.sticky-dropdown').classList.add('_active');
+      }, timeOpen * 1000);
+    }
   });
 })();
