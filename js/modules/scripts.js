@@ -155,19 +155,16 @@ import { popupOpen } from './chunks/modals.js';
           TOC.classList.add('active');
           startX = e.pageX - TOC.offsetLeft;
           scrollLeft = TOC.scrollLeft;
+          document.body.style.cursor = 'grabbing'; // меняем курсор
         });
 
-        TOC.addEventListener('mouseleave', () => {
+        document.addEventListener('mouseup', () => {
           isDown = false;
           TOC.classList.remove('active');
+          document.body.style.cursor = 'default'; // возвращаем курсор
         });
 
-        TOC.addEventListener('mouseup', () => {
-          isDown = false;
-          TOC.classList.remove('active');
-        });
-
-        TOC.addEventListener('mousemove', (e) => {
+        document.addEventListener('mousemove', (e) => {
           if (!isDown) return;
           e.preventDefault();
           const x = e.pageX - TOC.offsetLeft;

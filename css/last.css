@@ -688,10 +688,13 @@
   align-items: center;
 }
 .popup .popup-top:not(:last-child) {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .popup .popup-top__title:not(:last-child) {
   margin-right: 16px;
+}
+.popup .popup-content__body {
+  padding-top: 12px;
 }
 
 .popup-mini-tables .popup__body {
@@ -758,17 +761,10 @@
 .popup-mini-tables .popup-content {
   /* Если меньше контейнера */
   padding-right: 8px;
-  /* Если меньше контейнера */
-  padding-left: 32px;
 }
 @media (max-width: 1176px) {
   .popup-mini-tables .popup-content {
     padding-right: calc(3px + 5 * (100vw - 320px) / 856);
-  }
-}
-@media (max-width: 1176px) {
-  .popup-mini-tables .popup-content {
-    padding-left: calc(16px + 16 * (100vw - 320px) / 856);
   }
 }
 .popup-mini-tables .popup-content ::-webkit-scrollbar {
@@ -795,9 +791,11 @@
 .popup-mini-tables .popup-content__body {
   /* Если меньше контейнера */
   padding-right: 16px;
+  /* Если меньше контейнера */
+  padding-left: 32px;
   padding-bottom: 24px;
   /* Если меньше контейнера */
-  max-height: 475px;
+  max-height: 500px;
   overflow: auto;
 }
 @media (max-width: 1176px) {
@@ -807,8 +805,113 @@
 }
 @media (max-width: 1176px) {
   .popup-mini-tables .popup-content__body {
-    max-height: calc(450px + 25 * (100vw - 320px) / 856);
+    padding-left: calc(16px + 16 * (100vw - 320px) / 856);
   }
+}
+@media (max-width: 1176px) {
+  .popup-mini-tables .popup-content__body {
+    max-height: calc(470px + 30 * (100vw - 320px) / 856);
+  }
+}
+.popup-mini-tables__items {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.popup-mini-tables__items:not(:last-child) {
+  margin-bottom: 24px;
+}
+.popup-mini-tables__item {
+  /* Если меньше контейнера */
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Если меньше контейнера */
+  border-radius: 16px;
+  border: 2px solid var(--green-600);
+  background-color: var(--white);
+}
+@media (max-width: 1176px) {
+  .popup-mini-tables__item {
+    padding-top: calc(12px + 4 * (100vw - 320px) / 856);
+  }
+}
+@media (max-width: 1176px) {
+  .popup-mini-tables__item {
+    border-radius: calc(12px + 4 * (100vw - 320px) / 856);
+  }
+}
+.popup-mini-tables__item .button {
+  padding: 11.5px 28px;
+  pointer-events: none;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: color 0.3s ease 0s;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 150%;
+}
+@media (any-hover: hover) {
+  .popup-mini-tables__item {
+    transition: border-color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+  }
+  .popup-mini-tables__item:hover {
+    border-color: #ffa800;
+    box-shadow: 0px 0px 16px 0px rgba(255, 168, 0, 0.8);
+  }
+  .popup-mini-tables__item:hover .button {
+    background-color: #ffa800;
+    text-shadow: none;
+    color: var(--black-900);
+  }
+}
+.popup-mini-tables__image {
+  width: 118px;
+  flex: 0 0 118px;
+  padding-bottom: 72px;
+  position: relative;
+  overflow: hidden;
+  /* Если меньше контейнера */
+  border-radius: 12px;
+}
+@media (max-width: 1176px) {
+  .popup-mini-tables__image {
+    border-radius: calc(8px + 4 * (100vw - 320px) / 856);
+  }
+}
+.popup-mini-tables__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.popup-mini-tables__image:not(:last-child) {
+  margin-right: 24px;
+}
+.popup-mini-tables__text {
+  flex: 1 1 auto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: var(--black-900);
+}
+.popup-mini-tables__text:not(:last-child) {
+  margin-right: 24px;
+}
+.popup-mini-tables__link {
+  display: block;
+  text-decoration: underline;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 150%;
+  text-align: center;
+  color: var(--green-600);
 }
 
 .popup-card-bonuses .popup__body {
