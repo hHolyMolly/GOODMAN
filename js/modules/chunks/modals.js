@@ -4,7 +4,8 @@ import userDevice from '../functions/is_device.js';
 let unlock = true;
 
 const parentContainer = document.getElementById('modal-wrapper');
-const time = parentContainer.dataset.popupSpeed ? Number(parentContainer.dataset.popupSpeed) : 500;
+
+const time = parentContainer && parentContainer.dataset.popupSpeed ? Number(parentContainer.dataset.popupSpeed) : 500;
 
 function stickyDropdown() {
   if (userDevice.any()) {
