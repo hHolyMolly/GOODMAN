@@ -277,3 +277,37 @@ import { popupOpen } from './chunks/modals.js';
     }
   });
 })();
+
+(() => {
+  const links = document.querySelectorAll('.link-copiado');
+
+  let timeoutRef = null;
+
+  if (links.length > 0) {
+    links.forEach((link) => {
+      const target = link.querySelector('[data-link-copiado]');
+      const dropdown = link.querySelector('.link-copiado__dropdown');
+
+      target.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        timeoutRef = null;
+
+        dropdown.classList.add('_active');
+
+        const text = target.getAttribute('data-link-copiado');
+
+        navigator.clipboard.writeText(text);
+
+        const timeout = target.getAttribute('data-link-copiado-timeout') || 1000; // Задержка
+        const href = target.href;
+
+        timeoutRef = setTimeout(() => {
+          window.open(href, '_blank');
+
+          dropdown.classList.remove('_active');
+        }, timeout);
+      });
+    });
+  }
+})();
